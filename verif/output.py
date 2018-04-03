@@ -3313,7 +3313,6 @@ class Impact(Output):
       contrib = contrib[Ivalid]
       num = num[Ivalid]
 
-      print type(map)
       if self.map_type is not None and hasBasemap:
          x0, y0 = map(lons, lats)
 
@@ -3345,7 +3344,7 @@ class Impact(Output):
       I1 = np.where(contrib > 0)[0]
       map.scatter(x0[I1], y0[I1], s=sizes[I1], color="r", label="%s is worse" % labels[0])
       map.scatter(x0[I0], y0[I0], s=sizes[I0], color="b", label="%s is worse" % labels[1])
-      mpl.legend()
+      map.legend()
 
       # Annotate with location id and the colored value, instead of x and y
       self._add_annotation(x0, y0, ["%d %g" % (ids[i], contrib[i]) for i in range(len(ids))])
